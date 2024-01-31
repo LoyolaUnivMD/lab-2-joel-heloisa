@@ -1,3 +1,6 @@
 print out description of the program
 ask for the player's name
 ...
+generate 10 lines of random numbers between 0 and 99 using a for loop to do it 6 times.
+print out good luck with the name variable
+print out the current estimated jackpot using the decimal format
