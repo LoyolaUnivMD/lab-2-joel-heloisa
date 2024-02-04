@@ -14,7 +14,7 @@ import java.util.Random;
 import java.text.DecimalFormat;
 class Lab2 {
     public static void main(String[] args) {
-        long prize = 225938745L;
+        double prize = 0;
 
         //Create a scanner
         Scanner input = new Scanner(System.in);
@@ -33,8 +33,6 @@ class Lab2 {
         //Create two formats for prize and numbers
         DecimalFormat dfmt = new DecimalFormat("00");
         DecimalFormat df = new DecimalFormat("###,###,###,###,###,###.##");
-        //Apply format to prize
-        String cprize = df.format(prize);
 
         //Print statements
         System.out.println("CS 212 - Lab 2");
@@ -79,18 +77,20 @@ class Lab2 {
 
             if(random1 == win1 || random2 == win2 || random3 == win3 || random4 == win4 || random5 == win5 || random6 == win6 ){
                 playAmount = Math.pow(playAmount,1.75);
+                prize = playAmount;
             }
 
 
         }
 
         String cplayAmount = df.format(playAmount);
+        String cprize = df.format(prize);
         //Prints thank you messages
         System.out.println("-----------------");
         System.out.println("Good luck " + customerName + "!");
         System.out.println("-----------------");
         System.out.println("Your Winnings are: ");
-        System.out.println("$" + cplayAmount);
+        System.out.println("$" + cprize);
         System.out.println("-----------------");
     }
 }
