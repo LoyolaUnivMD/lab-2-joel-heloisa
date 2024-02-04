@@ -22,9 +22,17 @@ class Lab2 {
         //Create a random
         Random rand = new Random();
 
+        //Initialize Winning Numbers
+        int win1 = 3;
+        int win2 = 5;
+        int win3 = 16;
+        int win4 = 58;
+        int win5 = 59;
+        int win6 = 11;
+
         //Create two formats for prize and numbers
         DecimalFormat dfmt = new DecimalFormat("00");
-        DecimalFormat df = new DecimalFormat("###,###,###");
+        DecimalFormat df = new DecimalFormat("###,###,###,###,###,###.##");
         //Apply format to prize
         String cprize = df.format(prize);
 
@@ -35,6 +43,11 @@ class Lab2 {
         //Ask for name and receive input
         System.out.print("What's your name? ");
         String customerName = input.nextLine();
+
+        System.out.print("How much do you want to play?");
+        double playAmount = input.nextDouble();
+
+        System.out.println(customerName + " wants to play $" + playAmount );
 
         //For loop to create 10 lines or 6 random numbers
         for(int i = 0; i < 10; i++ ) {
@@ -64,12 +77,20 @@ class Lab2 {
             line = crandom1 + " " + crandom2 + " " + crandom3 + " " + crandom4 + " " + crandom5 + " " + crandom6;
             System.out.println(line);
 
+            if(random1 == win1 || random2 == win2 || random3 == win3 || random4 == win4 || random5 == win5 || random6 == win6 ){
+                playAmount = Math.pow(playAmount,1.75);
+            }
+
+
         }
+
+        String cplayAmount = df.format(playAmount);
         //Prints thank you messages
         System.out.println("-----------------");
         System.out.println("Good luck " + customerName + "!");
-        System.out.println("Estimated Jackpot: ");
-        System.out.println("$" + cprize);
+        System.out.println("-----------------");
+        System.out.println("Your Winnings are: ");
+        System.out.println("$" + cplayAmount);
         System.out.println("-----------------");
     }
 }
